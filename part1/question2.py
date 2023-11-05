@@ -15,7 +15,10 @@
 # it. As always, there is a test suite that checks the result. It is in 
 # `question2_test.py.`
 
-swapper = None
+def swapper(t):
+     #la función swapper debe tomar una tupla (a, b) y devolver la tupla (b, a)
+    return (t[1], t[0])
 
 def run_swapper(list_of_tuples):
-  return list(map(swapper, list_of_tuples))
+    # Mapea la función swapper a cada tupla en la lista
+    return list(map(swapper, list_of_tuples))

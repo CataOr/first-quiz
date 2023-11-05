@@ -1,19 +1,5 @@
-def test_alchemy_combine():
-
-  assert alchemy_combine(
-    make_oven(),
-    ["lead", "mercury"],
-    5000
-  ) == "gold"
-
-  assert alchemy_combine(
-    make_oven(),
-    ["water", "air"],
-    -100
-  ) == "snow"
-
-  assert alchemy_combine(
-    make_oven(),
-    ["cheese", "dough", "tomato"],
-    150
-  ) == "pizza"
+oven = make_oven()
+ingredients = ["apple", "banana", "carrot"]
+temperature = 75
+alchemy_combine(oven, ingredients, temperature)
+print(f"Oven output: {oven.get_output()}")

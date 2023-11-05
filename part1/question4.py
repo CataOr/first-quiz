@@ -26,6 +26,10 @@ sql_pets_owned_by_nobody = """
 
 Your SQL here.
 
+SELECT name, species, age
+FROM pets
+WHERE owner_id IS NULL;
+
 """
 
 # Part 4.B:
@@ -36,6 +40,10 @@ sql_pets_older_than_owner = """
 
 Your SQL here.
 
+SELECT COUNT(p.id)
+FROM pets p
+INNER JOIN people pe ON p.owner_id = pe.id
+WHERE p.age > pe.age;
 """
 
 # Part 4.C: BONUS CHALLENGE! 
@@ -45,4 +53,14 @@ sql_only_owned_by_bessie = """
 
 Your SQL here.
 
+SELECT pe.name, p.name, p.species
+FROM pets p
+INNER JOIN peolpe pe ON p.owner_id = pe.id
+WHERE pe.name = 'Bessie'
+  AND NOT EXISTS  (
+    SELECT 1
+    FROM pets p2
+    WHERE p2.owner_id = pe.id
+    AND p2.id <> p-id
+  )
 """
